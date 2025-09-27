@@ -4,7 +4,7 @@ import Banner from "./Components/Banner";
 import TicketCard from "./Components/Ticketcard";
 import { Suspense } from "react";
 import Aside from "./Components/Aside";
-import Dashboard from "./Components/Dashboard";
+
 
 
 const fetchTicket =async ()=>{
@@ -18,15 +18,14 @@ function App() {
     <>
       <Navbar/>
       <Banner/>
-      <div>
-      <Dashboard />
+      <div className="container mx-auto p-5 flex flex-col md:flex-row gap-6">
+      <div className="flex-1">
+        <TicketCard />
       </div>
-      {/* <div className="grid grid-cols-3"> */}
-      <Suspense>
-        <TicketCard fetchPromiseis={fetchPromiseis}></TicketCard>
-      </Suspense>
-      <Aside/>
-      {/* </div> */}
+      <aside className="w-full md:w-1/3 bg-gray-50 p-4 rounded">
+        <Aside />
+      </aside>
+    </div>
       <Footer />
     </>
   );

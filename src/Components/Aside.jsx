@@ -1,11 +1,11 @@
 
 const Aside = () => {
     return (
-        <div className="grid grid-cols-1 col-span-1">
-            <h2>Task Status</h2>
-            <p>Select a ticket to add to Task Status</p>
-            <h2>Resolved Task</h2>
-            <p>No resolved tasks yet.</p>
+        <div className="mb-6 ">
+            <h2 className=" font-semibold">Task Status</h2>
+            <p className="p-2">Select a ticket to add to Task Status</p>
+            <h2 className="font-semibold">Resolved Task</h2>
+            <p className="p-2">No resolved tasks yet.</p>
         </div>
     );
 };

@@ -1,31 +1,38 @@
-import React from "react";
-import tickets from "../Components/Ticketcard.json"; 
+import React, { useEffect, useState } from "react";
 
 const TicketCard = () => {
+  const [tickets, setTickets] = useState([]);
+
+  useEffect(() => {
+    fetch("/Ticketcard.json") 
+      .then((res) => res.json())
+      .then((data) => setTickets(data))
+      .catch((err) => console.error("Failed to load tickets:", err));
+  }, []);
+
   return (
-    <div className="container mx-auto bg-[#F5F5F5] m-10 ">
-        <h2 className="font-semibold text-lg p-3">Customer Tickets</h2>
-    <div className="grid md:grid-cols-2 gap-4">
-      {tickets.map((ticket) => (
-        <div key={ticket.id} className="p-4 bg-white shadow-md rounded-xl">
-          <h2 className="text-lg font-bold">{ticket.title}</h2>
-          <p className="text-sm text-gray-600">{ticket.description}</p>
-          <p className="mt-2">
-            <span className="font-semibold">Customer:</span> 
-            {ticket.customer}
-          </p>
-          <p>
-            <span className="font-semibold">Priority:</span> {ticket.priority}
-          </p>
-          <p>
-            <span className="font-semibold">Status:</span> {ticket.status}
-          </p>
-          <p className="text-xs text-gray-500 mt-2">
-            Created At: {new Date(ticket.createdAt).toLocaleString()}
-          </p>
-        </div>
-      ))}
-    </div>
+    <div className="container mx-auto p-5 flex flex-col ">
+      <h2 className="text-2xl font-bold mb-6">Customer Tickets</h2>
+      <div className="grid md:grid-cols-2 gap-6 flex-1">
+        {tickets.map((ticket) => (
+          <div key={ticket.id} className="bg-white shadow-lg rounded-xl p-5">
+            <h3 className="text-lg font-semibold mb-2">{ticket.title}</h3>
+            <p className="text-gray-600 mb-2">{ticket.description}</p>
+            <p className="text-sm text-gray-500 mb-1">
+              <span className="font-semibold">Customer:</span> {ticket.customer}
+            </p>
+            <p className="text-sm text-gray-500 mb-1">
+              <span className="font-semibold">Priority:</span> {ticket.priority}
+            </p>
+            <p className="text-sm text-gray-500 mb-1">
+              <span className="font-semibold">Status:</span> {ticket.status}
+            </p>
+            <p className="text-xs text-gray-400">
+              Created: {new Date(ticket.createdAt).toLocaleString()}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
