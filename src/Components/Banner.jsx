@@ -16,7 +16,6 @@ const Banner = ({ inProgress, Resolved }) => {
           <h2 className="text-white text-xl font-bold z-10">Resolved</h2>
           <p className="text-white font-semibold text-5xl z-10">{Resolved}</p>
         </div>
-
       </div>
     </div>
   );

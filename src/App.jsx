@@ -44,7 +44,7 @@ function App() {
         </aside>
       </div>
       <Footer />
-      <ToastContainer position="top-right" autoClose={2000} />
+      <ToastContainer position="top-left" autoClose={2000} />
     </>
   );
 }
