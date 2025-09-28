@@ -39,7 +39,7 @@ function App() {
         <div className="flex-1">
           <TicketCard tickets={tickets} addToTask={addToTask} />
         </div>
-        <aside className="w-full md:w-1/3 bg-gray-50 p-4 rounded">
+        <aside className="w-full md:w-1/3 bg-teal-100 p-4 rounded">
           <Aside tasks={inProgress} completeTask={completeTask} />
         </aside>
       </div>
